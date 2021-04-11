@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brake Pad Calculator</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    
+    <div style="width:90%; margin-bottom: 15px;">
+        <h1 style="display: inline;">Brake Pad Life Calculator</h1>
+        <span style="float: right;">
+            <input type="button" id="btnClear" value="Clear" />
+        </span>
+    </div>
+
+    <table style="width:90%" cell>
+        <tr class="top-border">
+            <td width="48%">Current Mileage</td>
+            <td width="13%"><input type="text" class="entry" id="txtCurrentMileage" /></td>
+            <td width="13%"></td>
+            <td width="13%"></td>
+            <td width="13%"></td>
+        </tr>
+
+        <tr>
+            <td></td>
+            <td colspan="2"><span class="heading2">Front Brakes</span></td>
+            <td colspan="2"><span class="heading2">Rear Brakes</span></td>
+        </tr>
+
+        <tr>
+            <td>Lowest brake pad measurement on axle (0-12)</td>
+            <td><input type="text" class="entry" id="txtLowestBrakePadMeasurementFront"/></td>
+            <td>Millimeters</td>
+            <td><input type="text" class="entry" id="txtLowestBrakePadMeasurementRear"/></td>
+            <td>Millimeters</td>
+        </tr>
+
+        <tr>
+            <td>Mileage when brakes were last replaced (0 if never)</td>
+            <td><input type="text" class="entry"  id="txtMileageWhenLastReplacedFront"/></td>
+            <td>Miles</td>
+            <td><input type="text" class="entry" id="txtMileageWhenLastReplacedRear" /></td>
+            <td>Miles</td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="blank">blank</td>
+        </tr>
+
+        <tr>
+            <td>Percentage of brake pad material remaining</td>
+            <td colspan="2" class="calculated-percent"><span id="pctBrakePadMaterialRemainingFront">0%</span></td>
+            <td colspan="2" class="calculated-percent"><span id="pctBrakePadMaterialRemainingRear">0%</span></td>
+        </tr>      
+        
+        <tr>
+            <td>Approximate life of brake pads</td>
+            <td class="calculated-number"><span id="approxLifeOfBrakePadsFront">0</span></td>
+            <td>Miles</td>
+            <td class="calculated-number"><span id="approxLifeOfBrakePadsRear">0</span></td>
+            <td>Miles</td>
+        </tr>     
+        
+        <tr>
+            <td colspan="5" class="blank">blank</td>
+        </tr>        
+
+        <tr>
+            <td>How many more miles until the brake pads will be at 0%</td>
+            <td class="calculated-number"><span id="howManyMoreMilesUntil0Front">0</span></td>
+            <td>Miles</td>
+            <td class="calculated-number"><span id="howManyMoreMilesUntil0Rear">0</span></td>
+            <td>Miles</td>
+        </tr>   
+        <tr>
+            <td>At what mileage will the brake pads be at 0%</td>
+            <td class="calculated-number"><span id="atWhatMileage0Front">0</span></td>
+            <td>Miles</td>
+            <td class="calculated-number"><span id="atWhatMileage0Rear">0</span></td>
+            <td>Miles</td>
+        </tr>   
+        <tr>
+            <td colspan="5" class="blank">blank</td>
+        </tr>                  
+
+        <tr>
+            <td>How many more miles until the brake pads will be at 10%</td>
+            <td class="calculated-number"><span id="howManyMoreMilesUntil10Front">0</span></td>
+            <td>Miles</td>
+            <td class="calculated-number"><span id="howManyMoreMilesUntil10Rear">0</span></td>
+            <td>Miles</td>
+        </tr>   
+        <tr>
+            <td>At what mileage will the brake pads be at 10%</td>
+            <td class="calculated-number"><span id="atWhatMileage10Front">0</span></td>
+            <td>Miles</td>
+            <td class="calculated-number"><span id="atWhatMileage10Rear">0</span></td>
+            <td>Miles</td>
+        </tr>   
+        <tr>
+            <td colspan="5" class="blank">blank</td>
+        </tr>  
+
+        <tr>
+            <td>How many more miles until the brake pads will be at 20%</td>
+            <td class="calculated-number"><span id="howManyMoreMilesUntil20Front">0</span></td>
+            <td>Miles</td>
+            <td class="calculated-number"><span id="howManyMoreMilesUntil20Rear">0</span></td>
+            <td>Miles</td>
+        </tr>   
+        <tr>
+            <td>At what mileage will the brake pads be at 20%</td>
+            <td class="calculated-number"><span id="atWhatMileage20Front">0</span></td>
+            <td>Miles</td>
+            <td class="calculated-number"><span id="atWhatMileage20Rear">0</span></td>
+            <td>Miles</td>
+        </tr>   
+        <tr>
+            <td colspan="5" class="blank">blank</td>
+        </tr>  
+
+        <tr>
+            <td>How many more miles until the brake pads will be at 30%</td>
+            <td class="calculated-number"><span id="howManyMoreMilesUntil30Front">0</span></td>
+            <td>Miles</td>
+            <td class="calculated-number"><span id="howManyMoreMilesUntil30Rear">0</span></td>
+            <td>Miles</td>
+        </tr>   
+        <tr>
+            <td>At what mileage will the brake pads be at 30%</td>
+            <td class="calculated-number"><span id="atWhatMileage30Front">0</span></td>
+            <td>Miles</td>
+            <td class="calculated-number"><span id="atWhatMileage30Rear">0</span></td>
+            <td>Miles</td>
+        </tr>   
+        <tr>
+            <td colspan="5" class="blank">blank</td>
+        </tr>          
+
+        <tr>
+            <td colspan="5" class="instructions">Enter Values in Green Fields.  All results are approximate!!!</td>
+        </tr>
+
+        <tr>
+            <td colspan="5" class="blank">blank</td>
+        </tr>           
+    </table>
+
+
+    <script src="js/main.js"></script>
+</body>
+</html>

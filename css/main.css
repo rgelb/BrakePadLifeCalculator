@@ -1,0 +1,84 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    background-color: rgb(209, 207, 207);
+}
+
+table {
+    border-collapse: collapse;
+}
+
+tr {
+    border-bottom: 1px solid black ;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+td {
+    /* border: 1px solid black; */
+    padding-left: 5px;
+    margin: 0;
+}
+
+input[type=text] {
+    padding: 4px;
+    appearance: none;
+    border: 1px solid #eee;
+}
+
+input[type=text]:focus {
+   box-shadow:0px 0px 5px #6192D1;
+   box-shadow: 0px 0px 5px  #6192D1;
+   padding: 3px;
+    
+    border-width: 2px;
+    border-color: transparent;
+    border-style: inset;
+  
+   outline: 0;
+}
+
+.top-border {
+    border-top: 1px solid black;
+}
+
+.entry {
+    background-color: #00FF00;
+}
+
+.heading2 {
+    font-weight: 600;
+}
+
+.blank {
+    background-color: black;
+}
+
+.calculated-number {
+    text-align: right;
+}
+
+.calculated-percent {
+    text-align: center;
+}
+
+.calculated-percent span {
+    padding-left: 30px;
+}
+
+.instructions {
+    background-color: yellow;
+    font-weight: 600;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+#btnClear {
+    font-size: 22px;
+    background-color: #CFE2F3;
+    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 7px;
+    appearance: none;
+}
