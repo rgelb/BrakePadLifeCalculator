@@ -71,7 +71,7 @@ class BrakePadLifeCalc {
         if (this.isNumeric(val)) {
             const numericVal: number = +val;
             const percent: number = Math.round( numericVal / 12 * 100);
-            document.getElementById("pctBrakePadMaterialRemainingFront").textContent = percent.toString() + "%";
+            document.getElementById("pctBrakePadMaterialRemainingFront").textContent = percent.toString();
         }
 
         // calculate pctBrakePadMaterialRemainingFront which is txtLowestBrakePadMeasurementFront / 12
@@ -79,7 +79,7 @@ class BrakePadLifeCalc {
         if (this.isNumeric(val)) {
             const numericVal: number = +val;
             const percent: number = Math.round( numericVal / 12 * 100);
-            document.getElementById("pctBrakePadMaterialRemainingRear").textContent = percent.toString() + "%";
+            document.getElementById("pctBrakePadMaterialRemainingRear").textContent = percent.toString();
         }
 
         let allValid: boolean = this.inputValid(["txtCurrentMileage", "txtMileageWhenLastReplacedFront", "txtLowestBrakePadMeasurementFront"]);

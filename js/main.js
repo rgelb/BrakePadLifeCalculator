@@ -59,14 +59,14 @@ var BrakePadLifeCalc = /** @class */ (function () {
         if (this.isNumeric(val)) {
             var numericVal = +val;
             var percent = Math.round(numericVal / 12 * 100);
-            document.getElementById("pctBrakePadMaterialRemainingFront").textContent = percent.toString() + "%";
+            document.getElementById("pctBrakePadMaterialRemainingFront").textContent = percent.toString();
         }
         // calculate pctBrakePadMaterialRemainingFront which is txtLowestBrakePadMeasurementFront / 12
         val = document.getElementById("txtLowestBrakePadMeasurementRear").value;
         if (this.isNumeric(val)) {
             var numericVal = +val;
             var percent = Math.round(numericVal / 12 * 100);
-            document.getElementById("pctBrakePadMaterialRemainingRear").textContent = percent.toString() + "%";
+            document.getElementById("pctBrakePadMaterialRemainingRear").textContent = percent.toString();
         }
         var allValid = this.inputValid(["txtCurrentMileage", "txtMileageWhenLastReplacedFront", "txtLowestBrakePadMeasurementFront"]);
         if (allValid) {
