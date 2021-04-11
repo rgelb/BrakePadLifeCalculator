@@ -271,7 +271,6 @@ class BrakePadLifeCalc {
             document.getElementById("howManyMoreMilesUntil30Rear").textContent = this.formatNumber(result);
         }                
 
-
     }
 
 
