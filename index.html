@@ -12,14 +12,14 @@
     <div style="width:90%; margin-bottom: 15px;">
         <h1 style="display: inline;">Brake Pad Life Calculator</h1>
         <span style="float: right;">
-            <input type="button" id="btnClear" value="Clear" />
+            <input type="button" id="btnClear" value="Clear" tabindex="5" />
         </span>
     </div>
 
     <table style="width:90%" cell>
         <tr class="top-border">
             <td width="48%">Current Mileage</td>
-            <td width="13%"><input type="text" class="entry" id="txtCurrentMileage" /></td>
+            <td width="13%"><input type="text" class="entry" id="txtCurrentMileage" tabindex="0" /></td>
             <td width="13%"></td>
             <td width="13%"></td>
             <td width="13%"></td>
@@ -33,17 +33,17 @@
 
         <tr>
             <td>Lowest brake pad measurement on axle (0-12)</td>
-            <td><input type="text" class="entry" id="txtLowestBrakePadMeasurementFront"/></td>
+            <td><input type="text" class="entry" id="txtLowestBrakePadMeasurementFront" tabindex="1"/></td>
             <td>Millimeters</td>
-            <td><input type="text" class="entry" id="txtLowestBrakePadMeasurementRear"/></td>
+            <td><input type="text" class="entry" id="txtLowestBrakePadMeasurementRear" tabindex="3"/></td>
             <td>Millimeters</td>
         </tr>
 
         <tr>
             <td>Mileage when brakes were last replaced (0 if never)</td>
-            <td><input type="text" class="entry"  id="txtMileageWhenLastReplacedFront"/></td>
+            <td><input type="text" class="entry"  id="txtMileageWhenLastReplacedFront" tabindex="2"/></td>
             <td>Miles</td>
-            <td><input type="text" class="entry" id="txtMileageWhenLastReplacedRear" /></td>
+            <td><input type="text" class="entry" id="txtMileageWhenLastReplacedRear" tabindex="4" /></td>
             <td>Miles</td>
         </tr>
 

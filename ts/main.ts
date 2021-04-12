@@ -7,20 +7,25 @@ class BrakePadLifeCalc {
         if (btn !== null) btn.addEventListener("click", (e:Event) => this.clearValues());
 
         // setup events for leaving text fields
-        let txt = document.getElementById("txtCurrentMileage");
-        if (txt !== null) txt.addEventListener("blur", (e:Event) => this.calculateValues());
+        let txtCurrentMileage = document.getElementById("txtCurrentMileage");
+        if (txtCurrentMileage !== null) txtCurrentMileage.addEventListener("blur", (e:Event) => this.calculateValues());
+        if (txtCurrentMileage !== null) txtCurrentMileage.addEventListener("keydown", (e:Event) => this.keyPressed(<KeyboardEvent>e));        
 
         let txtLowestBrakePadMeasurementFront = document.getElementById("txtLowestBrakePadMeasurementFront");
         if (txtLowestBrakePadMeasurementFront !== null) txtLowestBrakePadMeasurementFront.addEventListener("blur", (e:Event) => this.calculateValues());
+        if (txtLowestBrakePadMeasurementFront !== null) txtLowestBrakePadMeasurementFront.addEventListener("keydown", (e:Event) => this.keyPressed(<KeyboardEvent>e));
 
         let txtLowestBrakePadMeasurementRear = document.getElementById("txtLowestBrakePadMeasurementRear");
-        if (txtLowestBrakePadMeasurementRear !== null) txtLowestBrakePadMeasurementRear.addEventListener("blur", (e:Event) => this.calculateValues());      
+        if (txtLowestBrakePadMeasurementRear !== null) txtLowestBrakePadMeasurementRear.addEventListener("blur", (e:Event) => this.calculateValues());
+        if (txtLowestBrakePadMeasurementRear !== null) txtLowestBrakePadMeasurementRear.addEventListener("keydown", (e:Event) => this.keyPressed(<KeyboardEvent>e));
         
         let txtMileageWhenLastReplacedFront = document.getElementById("txtMileageWhenLastReplacedFront");
-        if (txtMileageWhenLastReplacedFront !== null) txtMileageWhenLastReplacedFront.addEventListener("blur", (e:Event) => this.calculateValues());  
+        if (txtMileageWhenLastReplacedFront !== null) txtMileageWhenLastReplacedFront.addEventListener("blur", (e:Event) => this.calculateValues());
+        if (txtMileageWhenLastReplacedFront !== null) txtMileageWhenLastReplacedFront.addEventListener("keydown", (e:Event) => this.keyPressed(<KeyboardEvent>e));
         
         let txtMileageWhenLastReplacedRear = document.getElementById("txtMileageWhenLastReplacedRear");
-        if (txtMileageWhenLastReplacedRear !== null) txtMileageWhenLastReplacedRear.addEventListener("blur", (e:Event) => this.calculateValues());          
+        if (txtMileageWhenLastReplacedRear !== null) txtMileageWhenLastReplacedRear.addEventListener("blur", (e:Event) => this.calculateValues());
+        if (txtMileageWhenLastReplacedRear !== null) txtMileageWhenLastReplacedRear.addEventListener("keydown", (e:Event) => this.keyPressed(<KeyboardEvent>e));
 
     }
 
@@ -273,6 +278,31 @@ class BrakePadLifeCalc {
 
     }
 
+    keyPressed(ev: KeyboardEvent): void {        
+        if (ev.key === "Enter") {
+            this.calculateValues();
+
+            let currentTabIndex: number = (<any>ev.target).tabIndex;
+            this.goToNextTab(currentTabIndex);
+        }
+    }
+
+    goToNextTab(currentTabIndex: number): void {
+        const maxTabIndex: number = 4;
+        let nextTabIndex: number = 0;
+        if (currentTabIndex == maxTabIndex) {
+            nextTabIndex = 0;
+        } else {
+            nextTabIndex = currentTabIndex + 1;
+        }
+
+        // find element with the next
+        const query: string = `[tabindex='${nextTabIndex}']`;
+        const nextElement: HTMLInputElement = document.querySelector(query); 
+        if (nextElement !== null) {
+            nextElement.focus();
+        }
+    }
 
     inputValid(elements: string []): boolean {
         // check to see that input value is valid and numeric

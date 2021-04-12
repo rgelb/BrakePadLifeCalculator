@@ -7,21 +7,31 @@ var BrakePadLifeCalc = /** @class */ (function () {
         if (btn !== null)
             btn.addEventListener("click", function (e) { return _this.clearValues(); });
         // setup events for leaving text fields
-        var txt = document.getElementById("txtCurrentMileage");
-        if (txt !== null)
-            txt.addEventListener("blur", function (e) { return _this.calculateValues(); });
+        var txtCurrentMileage = document.getElementById("txtCurrentMileage");
+        if (txtCurrentMileage !== null)
+            txtCurrentMileage.addEventListener("blur", function (e) { return _this.calculateValues(); });
+        if (txtCurrentMileage !== null)
+            txtCurrentMileage.addEventListener("keydown", function (e) { return _this.keyPressed(e); });
         var txtLowestBrakePadMeasurementFront = document.getElementById("txtLowestBrakePadMeasurementFront");
         if (txtLowestBrakePadMeasurementFront !== null)
             txtLowestBrakePadMeasurementFront.addEventListener("blur", function (e) { return _this.calculateValues(); });
+        if (txtLowestBrakePadMeasurementFront !== null)
+            txtLowestBrakePadMeasurementFront.addEventListener("keydown", function (e) { return _this.keyPressed(e); });
         var txtLowestBrakePadMeasurementRear = document.getElementById("txtLowestBrakePadMeasurementRear");
         if (txtLowestBrakePadMeasurementRear !== null)
             txtLowestBrakePadMeasurementRear.addEventListener("blur", function (e) { return _this.calculateValues(); });
+        if (txtLowestBrakePadMeasurementRear !== null)
+            txtLowestBrakePadMeasurementRear.addEventListener("keydown", function (e) { return _this.keyPressed(e); });
         var txtMileageWhenLastReplacedFront = document.getElementById("txtMileageWhenLastReplacedFront");
         if (txtMileageWhenLastReplacedFront !== null)
             txtMileageWhenLastReplacedFront.addEventListener("blur", function (e) { return _this.calculateValues(); });
+        if (txtMileageWhenLastReplacedFront !== null)
+            txtMileageWhenLastReplacedFront.addEventListener("keydown", function (e) { return _this.keyPressed(e); });
         var txtMileageWhenLastReplacedRear = document.getElementById("txtMileageWhenLastReplacedRear");
         if (txtMileageWhenLastReplacedRear !== null)
             txtMileageWhenLastReplacedRear.addEventListener("blur", function (e) { return _this.calculateValues(); });
+        if (txtMileageWhenLastReplacedRear !== null)
+            txtMileageWhenLastReplacedRear.addEventListener("keydown", function (e) { return _this.keyPressed(e); });
     }
     BrakePadLifeCalc.prototype.clearValues = function () {
         // clear input fields
@@ -216,6 +226,29 @@ var BrakePadLifeCalc = /** @class */ (function () {
             var atWhatMileage30Rear = this.getLabelValue("atWhatMileage30Rear");
             var result = atWhatMileage30Rear - txtCurrentMileage;
             document.getElementById("howManyMoreMilesUntil30Rear").textContent = this.formatNumber(result);
+        }
+    };
+    BrakePadLifeCalc.prototype.keyPressed = function (ev) {
+        if (ev.key === "Enter") {
+            this.calculateValues();
+            var currentTabIndex = ev.target.tabIndex;
+            this.goToNextTab(currentTabIndex);
+        }
+    };
+    BrakePadLifeCalc.prototype.goToNextTab = function (currentTabIndex) {
+        var maxTabIndex = 4;
+        var nextTabIndex = 0;
+        if (currentTabIndex == maxTabIndex) {
+            nextTabIndex = 0;
+        }
+        else {
+            nextTabIndex = currentTabIndex + 1;
+        }
+        // find element with the next
+        var query = "[tabindex='" + nextTabIndex + "']";
+        var nextElement = document.querySelector(query);
+        if (nextElement !== null) {
+            nextElement.focus();
         }
     };
     BrakePadLifeCalc.prototype.inputValid = function (elements) {
